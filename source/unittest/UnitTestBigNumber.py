@@ -7,7 +7,7 @@ import unittest
 
 import sys
 # Add the ptdraft folder path to the sys.path list
-sys.path.append('../bignumbers/')
+sys.path.append('../bignumbers')
 
 from BigNumber import BigNumber
 
@@ -45,10 +45,10 @@ class Test(unittest.TestCase):
         b2 = BigNumber()
         b3 = None
         invalid = False;
-        for i in xrange(-364, 164):
+        for i in xrange(-3643, 1645):
             if (invalid):
                 break;
-            for j in xrange(-34, 56):
+            for j in xrange(-343, 562):
                 b1.parse(i)
                 b2.parse(j)
                 b3 = b1 + b2
