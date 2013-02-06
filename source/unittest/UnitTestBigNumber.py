@@ -4,6 +4,7 @@ Created on 05.02.2013.
 @author: igor.crevar
 '''
 import unittest
+import random
 
 import sys
 # Add the ptdraft folder path to the sys.path list
@@ -40,12 +41,11 @@ class Test(unittest.TestCase):
         self.assertEqual(str(a), '5430')
         
     def testAdd(self):
-        return
         b1 = BigNumber()
         b2 = BigNumber()
         b3 = None
         invalid = False;
-        for i in xrange(-3643, 1645):
+        for i in xrange(-3643, 164):
             if (invalid):
                 break;
             for j in xrange(-343, 562):
@@ -99,7 +99,18 @@ class Test(unittest.TestCase):
         str1 = str(b3)
         str2 = str(z)
         self.assertEqual(str1 == str2, True, \
-                         "Its {0} but it should be {1}".format(str1, str2))   
+                         "Its {0} but it should be {1}".format(str1, str2))
+        for i in xrange(0, 1000):
+             x = int(random.random() * 400000) - 200000  
+             y = int(random.random() * 8000000) - 4000000
+             b1.parse(x)
+             b2.parse(y)
+             b3 = b1 * b2
+             z  = x * y
+             str1 = str(b3)
+             str2 = str(z)
+             self.assertEqual(str1 == str2, True, \
+                             "Its {0} but it should be {1}".format(str1, str2))
 
 if __name__ == "__main__":
     #import sys; sys.argv = ['', 'Test.testName']
